@@ -1,3 +1,4 @@
+import sys
 
 
 braille_to_char = {
@@ -28,8 +29,8 @@ char_to_braille = {value: key for key, value in braille_to_char.items()}
 number_to_braille = {value: key for key, value in braille_to_number.items()}
 
 
-def translate():
-    char = input()
+def translate(char):
+
     if ".O" in char or "O." in char:
         print(convert_braille_to_char(char))
     else:
@@ -91,4 +92,9 @@ def convert_char_to_braille(char):
     
     return answer
 
-translate()
+if __name__ == "__main__":
+   
+
+    # Join the arguments to form the input string
+    input_text = ' '.join(sys.argv[1:])  # This combines all arguments after the script name
+    translate(input_text)
